@@ -1,4 +1,109 @@
 @import 'tailwindcss';
 @plugin "daisyui" {
-  themes: light, dark;
+  themes: light --default, dark --prefersdark;
+  root: ":root";
+  include: ;
+  exclude: ;
+  prefix: ;
+  logs: true;
+}
+@plugin "daisyui/theme" {
+  name: "mytheme";
+  default: true; /* set as default */
+  prefersdark: false; /* set as default dark mode (prefers-color-scheme:dark) */
+  color-scheme: light; /* color of browser-provided UI */
+
+  --color-base-100: oklch(98% 0.02 240);
+  --color-base-200: oklch(95% 0.03 240);
+  --color-base-300: oklch(92% 0.04 240);
+  --color-base-content: oklch(20% 0.05 240);
+  --color-primary: oklch(55% 0.3 240);
+  --color-primary-content: oklch(98% 0.01 240);
+  --color-secondary: oklch(70% 0.25 200);
+  --color-secondary-content: oklch(98% 0.01 200);
+  --color-accent: oklch(65% 0.25 160);
+  --color-accent-content: oklch(98% 0.01 160);
+  --color-neutral: oklch(50% 0.05 240);
+  --color-neutral-content: oklch(98% 0.01 240);
+  --color-info: oklch(70% 0.2 220);
+  --color-info-content: oklch(98% 0.01 220);
+  --color-success: oklch(65% 0.25 140);
+  --color-success-content: oklch(98% 0.01 140);
+  --color-warning: oklch(80% 0.25 80);
+  --color-warning-content: oklch(20% 0.05 80);
+  --color-error: oklch(65% 0.3 30);
+  --color-error-content: oklch(98% 0.01 30);
+  
+    --color-base-100: oklch(100% 0 0);
+    --color-base-200: oklch(96.115% 0 0);
+    --color-base-300: oklch(92.416% 0.001 197.137);
+    --color-base-content: oklch(27.807% 0.029 256.847);
+    --color-primary: oklch(49.12% 0.309 275.75);
+    --color-primary-content: oklch(89.824% 0.061 275.75);
+    --color-secondary: oklch(69.71% 0.329 342.55);
+    --color-secondary-content: oklch(98.71% 0.01 342.55);
+    --color-accent: oklch(76.76% 0.184 183.61);
+    --color-accent-content: oklch(15.352% 0.036 183.61);
+    --color-neutral: oklch(20% 0.024 255.701);
+    --color-neutral-content: oklch(89.499% 0.011 252.096);
+    --color-info: oklch(72.06% 0.191 231.6);
+    --color-info-content: oklch(0% 0 0);
+    --color-success: oklch(64.8% 0.15 160);
+    --color-success-content: oklch(0% 0 0);
+    --color-warning: oklch(84.71% 0.199 83.87);
+    --color-warning-content: oklch(0% 0 0);
+    --color-error: oklch(71.76% 0.221 22.18);
+    --color-error-content: oklch(0% 0 0);
+    
+  /* border radius */
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* base sizes */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* border size */
+  --border: 1px;
+
+  /* effects */
+  --depth: 1;
+  --noise: 0;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset uchun asosiy bazaviy qoidalar: */
+*,
+*::before,
+*::after {
+  @apply m-0 p-0 box-border;
+}
+
+.container {
+  @apply max-w-[1200px] w-full mx-auto px-4;
+}
+
+
+/* Linklar uchun default holat */
+a {
+  @apply text-inherit no-underline;
+}
+
+/* Listlar uchun default style olib tashlash */
+ul, ol {
+  list-style: none;
+}
+
+/* Headings uchun umumiy style */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold text-gray-900;
+}
+
+/* Rasm uchun max-width */
+img {
+  @apply max-w-full h-auto block;
 }
